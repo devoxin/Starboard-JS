@@ -33,9 +33,7 @@ client.on('messageReactionAdd', async (message, emoji, user) => {
                 },
                 description: msg.content,
                 timestamp: new Date(),
-                image: {
-                    url: resolveAttachment(msg)
-                }
+                image: resolveAttachment(msg)
             }
         });
 
@@ -88,12 +86,12 @@ function getMessageFromDatabase(msgid) {
 
 function resolveAttachment(msg) {
     if (msg.attachments.length > 0 && ['png', 'jpg', 'jpeg', 'gif'].some(format => msg.attachments[0].url.endsWith(format)))
-        return msg.attachments[0].url;
+        return msg.attachments[0];
 
     if (msg.embeds.length > 0 && msg.embeds[0].type === 'image')
-        return msg.embeds[0].url || msg.embeds[0].thumbnail.url;
+        return msg.embeds[0].image || msg.embeds[0].thumbnail;
 
-    return '';
+    return null;
 }
 
 client.connect();
