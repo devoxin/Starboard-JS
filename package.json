@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "eris": "^0.8.4",
-    "sqlite3": "^3.1.13"
+    "better-sqlite3": "^4.1.4"
   }
 }
