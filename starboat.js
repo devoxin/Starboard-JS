@@ -1,5 +1,5 @@
 const { Client } = require('eris');
-const { Database } = require('better-sqlite3');
+const Database = require('better-sqlite3');
 const db = new Database('star.db');
 const client = new Client('token');
 
