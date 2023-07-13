@@ -41,12 +41,12 @@ client.on('messageReactionAdd', async (message, emoji, user) => {
           icon_url: msg.author.avatarURL
         },
         description: `${referenceExtra}\n\n${msgContent.replace(/\[]\(([^\)]*)\)/g, '$1')}`,
-        fields: [
+        fields: videoUrl ? [
           {
             name: '\u200b',
-            value: (videoUrl ? `[\`Video Attachment\`](${videoUrl}) | ` : '')
+            value: `[\`Video Attachment\`](${videoUrl})`
           }
-        ],
+        ] : [],
         image: resolveAttachment(msg),
         timestamp: new Date()
       }
