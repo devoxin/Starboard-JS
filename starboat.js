@@ -59,8 +59,7 @@ client.on('messageReactionAdd', async (message, emoji, user) => {
     db.prepare('INSERT INTO starids VALUES (?, ?)').run(msg.id, starMsg.id);
   } else {
     starboard.getMessage(starId)
-      .catch(() => db.prepare('DELETE FROM starids WHERE msgid = ?').run(message.id))
-      .then(msg => msg.edit(`${stars} ⭐`))
+      .then(msg => msg.edit(`${stars} ⭐`), () => db.prepare('DELETE FROM starids WHERE msgid = ?').run(message.id));
   }
 });
 
