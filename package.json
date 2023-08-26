@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eris": "^0.9.0",
-    "better-sqlite3": "^4.1.4"
+    "eris": "^0.17.2",
+    "better-sqlite3": "^8.5.2"
   }
 }
